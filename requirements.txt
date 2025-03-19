@@ -1,5 +1,6 @@
 requirements:
 python 3.6.11+
+Eshare
 pyautogui (pip3 install pyautogui for linux/MacOS, pip install pyautogui for Windows)
 pynput (pip install pynput)
 pytesseract (apt install tesseract-ocr; pip install pytesseract) 
