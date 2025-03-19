@@ -2,4 +2,4 @@ requirements:
 python 3.6.11+
 pyautogui (pip3 install pyautogui for linux/MacOS, pip install pyautogui for Windows)
 pynput (pip install pynput)
-for failure condition: pytesseract (apt install pytesseract) 
+pytesseract (apt install pytesseract) 
