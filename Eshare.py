@@ -1,5 +1,5 @@
 import pyautogui
-# import pytesseract # uncomment if in need of a success condition
+import pytesseract
 import time
 from pynput.mouse import Listener
 import threading
@@ -7,9 +7,10 @@ import threading
 # Variables for locations (you can adjust these as needed)
 GENERAL_OK_BUTTON = (1080, 730)
 GENERAL_FIELD = (900, 730)
-TARGET_OK_BUTTON = (1017, 594)
+TARGET_OK_BUTTON = (1000, 590)
 TRY_AGAIN_BUTTON = (960, 615)
 TEXT_FIELD = (1000, 725)
+TARGET_IP = input("Enter the target ip: ") 
 
 # Global stop event to control the macro
 stop_event = threading.Event()
@@ -37,6 +38,22 @@ def run_macro():
         pyautogui.moveTo(TRY_AGAIN_BUTTON)
         pyautogui.click()
         pyautogui.typewrite(str(f"{number:06d}"))
+        crashtest = pyautogui.screenshot(region=(820, 460, 280, 100))
+        crashtext = pytesseract.image_to_string(crashtest)
+        if "please" not in crashtext: # determines if Eshare crashed or not (usually happens every 1000 attempts)
+            print(f"Eshare couldn't handle our greatness! The last attempted number was {number}. Rebooting Eshare and continuing...")
+            pyautogui.press("win")
+            pyautogui.typewrite("Eshare")
+            pyautogui.press("enter")
+            time.sleep(1)
+            pyautogui.moveTo(TEXT_FIELD)
+            pyautogui.click()
+            pyautogui.typewrite(TARGET_IP)
+            pyautogui.moveTo(GENERAL_OK_BUTTON)
+            pyautogui.click()
+            pyautogui.typewrite(str(f"{number:06d}"))
+        
+
         pyautogui.moveTo(TARGET_OK_BUTTON)
         pyautogui.click()
         time.sleep(0.2)
