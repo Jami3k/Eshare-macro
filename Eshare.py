@@ -1,5 +1,5 @@
 import pyautogui
-import pytesseract
+# import pytesseract # uncomment if in need of a success condition
 import time
 from pynput.mouse import Listener
 import threading
@@ -29,14 +29,14 @@ def start_mouse_listener():
 def run_macro():
     time.sleep(2)  # Wait for the screen to be ready
 
-    for number in range(100000, 1000000):
+    for number in range(1000000):
         if stop_event.is_set():
             print("Macro stopped due to mouse right-click.")
             break
         
         pyautogui.moveTo(TRY_AGAIN_BUTTON)
         pyautogui.click()
-        pyautogui.typewrite(str(number))
+        pyautogui.typewrite(str(f"{number:06d}"))
         pyautogui.moveTo(TARGET_OK_BUTTON)
         pyautogui.click()
         time.sleep(0.2)
