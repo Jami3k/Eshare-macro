@@ -1,6 +1,7 @@
 requirements:
-python 3.6.11+
-Eshare
-pyautogui (pip3 install pyautogui for linux/MacOS, pip install pyautogui for Windows)
+python 3.1 + (note: pyautogui possibly has compatibility issues with python 3.8+)
+Eshare (https://eshare.app/)
+Espeak (apt install Espeak)
+pyautogui (pip install pyautogui for linux/Windows, for MacOS additionally pip install pyobjc-core, pip install pyobjc)
 pynput (pip install pynput)
 pytesseract (apt install tesseract-ocr; pip install pytesseract) 
