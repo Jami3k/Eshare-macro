@@ -1,5 +1,5 @@
 requirements:
-python 3.1 + (note: pyautogui possibly has compatibility issues with python 3.8+)
+python 3.6 + (note: pyautogui possibly has compatibility issues with python 3.8+)
 Eshare (https://eshare.app/)
 Espeak (apt install Espeak)
 pyautogui (pip install pyautogui for linux/Windows, for MacOS additionally pip install pyobjc-core, pip install pyobjc)
